@@ -1,0 +1,27 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000b\u0000a\u0000n\u0000k\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danush242211ay/bank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/danush242211ay/bank/issues"
+  },
+  "homepage": "https://github.com/danush242211ay/bank#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.7.3"
+  }
+}
