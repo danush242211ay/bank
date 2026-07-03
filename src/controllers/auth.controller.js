@@ -1,5 +1,6 @@
 const userModel = require('../models/user.model');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const emailService = require('../services/email.service')
 
 async function userRegisterController(req,res){
    try {
@@ -38,12 +39,15 @@ async function userRegisterController(req,res){
             token
         });
 
+        await emailService.sendRegistrationEmail(user.email,user.name)
+
     } catch (err) {
         console.log(err);
         res.status(500).json({
             message: err.message
         });
     }
+    
 }
 
 async function userLoginController(req,res){
@@ -82,4 +86,5 @@ async function userLoginController(req,res){
         });
 
 }
+
 module.exports = {userRegisterController , userLoginController};
