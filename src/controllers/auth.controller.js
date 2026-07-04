@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const emailService = require('../services/email.service')
 
 async function userRegisterController(req,res){
-   try {
         const { email, password, name } = req.body;
 
         const isExists = await userModel.findOne({ email });
@@ -28,6 +27,7 @@ async function userRegisterController(req,res){
         );
 
         res.cookie("token", token);
+        
 
         res.status(201).json({
             message: "Registered Successfully",
@@ -38,15 +38,9 @@ async function userRegisterController(req,res){
             },
             token
         });
+        // await emailService.sendRegistrationEmail(user.email,user.name)
 
-        await emailService.sendRegistrationEmail(user.email,user.name)
-
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({
-            message: err.message
-        });
-    }
+        
     
 }
 
